@@ -11,7 +11,7 @@
     "url": "git+https://github.com/AlanBenitez22/AvalicaoFinalNodeAPI.git"
   },
   "license": "ISC",
-  "author": "",
+  "author": "Alan Benitez",
   "type": "module",
   "main": "index.js",
   "scripts": {
