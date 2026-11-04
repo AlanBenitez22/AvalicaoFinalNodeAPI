@@ -1,0 +1,26 @@
+{
+  "name": "avalicaofinalnodeapi",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/AlanBenitez22/AvalicaoFinalNodeAPI#readme",
+  "bugs": {
+    "url": "https://github.com/AlanBenitez22/AvalicaoFinalNodeAPI/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlanBenitez22/AvalicaoFinalNodeAPI.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "pg": "^8.23.1",
+    "sequelize": "^6.37.8"
+  }
+}
