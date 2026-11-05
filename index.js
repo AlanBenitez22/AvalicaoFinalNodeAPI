@@ -1,5 +1,5 @@
 import express from 'express'
-import router from './src/router/clientes.js'
+import router from './src/router/atendimento.js'
 import database from './src/config/database.js';
 
 
@@ -12,7 +12,7 @@ database.db
     .sync({ force:false })
     .then((_) => {
         app.listen(3000, () => {
-            console.log("Servidor ouvind na porta 3000")
+            console.log("Servidor ouvindo na porta 3000")
         })
     })
     .catch((e) => {
