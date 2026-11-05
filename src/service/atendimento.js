@@ -1,3 +1,4 @@
+import { isFloat } from 'validator'
 import atendimento from '../model/atendimento.js'
 
 class Serviceatendimento {
@@ -31,8 +32,8 @@ class Serviceatendimento {
         await atendimento.create({ dia, hora, valor, concluido })
     }
     
-    async Alterar(id, dia, hora, valor, concluido) {
-        if(!id || isNaN(id) || !dia || !hora || !valor || !concluido) {
+    async Alterar(id, dia, hora, valor) {
+        if(!id || isNaN(id) || !dia || !hora || !valor) {
             throw new Error("Favor informar todos os dados")
         }
         const atendimentoAlterar = await atendimento.findByPk(id)
@@ -43,8 +44,27 @@ class Serviceatendimento {
         atendimentoAlterar.dia = dia,
         atendimentoAlterar.hora = hora,
         atendimentoAlterar.valor = valor,
-        atendimentoAlterar.concluido = concluido
 
+
+        await atendimentoAlterar.save()
+    }
+
+     async Alterarconcluido(id, concluido) {
+        if(!concluido || (false)) {
+            throw new Error("Favor informar todos os dados")
+        }
+        const atendimentoAlterar = await atendimento.findByPk(id)
+        if(!atendimentoAlterar) {
+            throw new Error("atendimento não encontrada")
+        }
+
+        atendimentoAlterar.concluido = true
+
+        if(!concluido || (true)) {
+            throw new Error("Favor informar todos os dados")
+        }
+        
+        atendimentoAlterar.concluido = false
 
         await atendimentoAlterar.save()
     }

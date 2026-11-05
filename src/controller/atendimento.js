@@ -43,14 +43,26 @@ class Controlleratendimento {
             const dia = req.body.dia
             const hora = req.body.hora
             const valor = req.body.valor
-            const concluido = req.body.concluido
-            Serviceatendimento.Alterar(id, dia, hora, valor, concluido)
+            Serviceatendimento.Alterar(id, dia, hora, valor)
 
             res.send({ message: "Alterado com sucesso!" })
         } catch (error) {
             res.send({ message: error.message })
         }
     }
+
+        Alterarconcluido(req, res) {
+        try {
+            const concluido = req.body.concluido
+            Serviceatendimento.Alterar(concluido)
+
+            res.send({ message: "Alterado com sucesso!" })
+        } catch (error) {
+            res.send({ message: error.message })
+        }
+    }
+
+    
     
     async Deletar(req, res) {
         try {
