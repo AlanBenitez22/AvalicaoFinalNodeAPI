@@ -4,9 +4,9 @@ class Controlleratendimento {
 
     async Buscar(req, res) {
         try {
-            const nomes = Serviceatendimento.Buscar()
+            const dias = Serviceatendimento.Buscar()
 
-            res.send({ nomes })
+            res.send({ dias })
         } catch (e) {
             res.send({ message: e.message })
         }
@@ -15,9 +15,9 @@ class Controlleratendimento {
     BuscarUm(req, res) {
         try {
             const id = req.params.id
-            const nome = Serviceatendimento.BuscarUm(id)
+            const dia = Serviceatendimento.BuscarUm(id)
 
-            res.send({ nome })
+            res.send({ dia })
         } catch (error) {
             res.send({ message: error.message })
         }
@@ -25,10 +25,11 @@ class Controlleratendimento {
 
     async Criar(req, res) {
         try {
-            const nome = req.body.nome
-            const email = req.body.email
-            const senha = req.body.senha
-            Serviceatendimento.Criar(nome, email, senha)
+            const dia = req.body.dia
+            const hora = req.body.hora
+            const valor = req.body.valor
+            const concluido = req.body.concluido
+            Serviceatendimento.Criar(dia, hora, valor, concluido)
 
             res.send({ message: "Criado com sucesso!" })
         } catch (error) {
@@ -39,10 +40,11 @@ class Controlleratendimento {
     Alterar(req, res) {
         try {
             const id = req.params.id
-            const nome = req.body.nome
-            const email = req.body.email
-            const senha = req.body.senha
-            Serviceatendimento.Alterar(id, nome, email, senha)
+            const dia = req.body.dia
+            const hora = req.body.hora
+            const valor = req.body.valor
+            const concluido = req.body.concluido
+            Serviceatendimento.Alterar(id, dia, hora, valor, concluido)
 
             res.send({ message: "Alterado com sucesso!" })
         } catch (error) {

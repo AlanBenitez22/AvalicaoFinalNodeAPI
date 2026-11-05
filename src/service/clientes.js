@@ -14,21 +14,21 @@ class Serviceclientes {
         return clientes.BuscarUm(id)
     }
     
-    async Criar(nome, idade) {
+    async Criar(nome, email, senha) {
         if(!nome) {
             throw new Error("Favor informar o nome")
         }
         
-        await clientes.create({ nome, idade })
+        await clientes.create({ nome, email, senha })
     }
     
-    async Alterar(id, nome) {
-        if(!id || isNaN(id) || !nome) {
+    async Alterar(id, nome, email, senha) {
+        if(!id || isNaN(id) || !nome || !email || !senha) {
             throw new Error("Favor informar todos os dados")
         }
         const clientesAlterar = await clientes.findByPk(id)
         if(!clientesAlterar) {
-            throw new Error("clientes não encontrada")
+            throw new Error("clientes não encontrado")
         }
 
         clientesAlterar.nome = nome
