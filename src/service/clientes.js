@@ -18,6 +18,12 @@ class Serviceclientes {
         if(!nome) {
             throw new Error("Favor informar o nome")
         }
+         if(!email) {
+            throw new Error("Favor informar o email")
+        }
+         if(!senha) {
+            throw new Error("Favor informar o senha")
+        }
         
         await clientes.create({ nome, email, senha })
     }
@@ -31,7 +37,9 @@ class Serviceclientes {
             throw new Error("clientes não encontrado")
         }
 
-        clientesAlterar.nome = nome
+        clientesAlterar.nome = nome,
+        clientesAlterar.email = email,
+        clientesAlterar.senha = senha
 
         await clientesAlterar.save()
     }
